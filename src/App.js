@@ -57,10 +57,12 @@ class App extends Component {
 
     let newTotal = ((Math.round(this.state.order.total * 100)) - (Math.round(this.state.order.burgers[this.state.burger].ings[i].coste * 100)))/ 100
 
+    let burgerList = this.state.order.burgers;
+
+    burgerList[this.state.burger].total = ((Math.round(burgerList[this.state.burger].total * 100)) - (Math.round(this.state.order.burgers[this.state.burger].ings[i].coste * 100)))/ 100;
+
     let newOrder = this.state.order.burgers[this.state.burger].ings;
     newOrder.splice(i, 1)
-
-    let burgerList = this.state.order.burgers;
 
     burgerList[this.state.burger].ings = newOrder;
 
